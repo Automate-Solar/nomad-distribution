@@ -35,7 +35,7 @@ jobs:
       - name: Update docker-compose.yml
         working-directory: ./nomad-oasis_files
         run: |
-          sed -i "s|FAIRMAT_NFDI/nomad-distribution-template|${{ github.repository }}|g" docker-compose.yaml
+          sed -i "s|FAIRMAT_NFDI/nomad-distribution-template|${{ github.repository }}|g" nomad-oasis/docker-compose.yaml
           zip -r nomad-oasis.zip nomad-oasis
 
       # Deletes this workflow file to prevent it from running on branch creation
