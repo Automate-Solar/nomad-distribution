@@ -33,11 +33,10 @@ jobs:
           
       # Replaces the template repository name in the docker config file with the new one
       - name: Update docker-compose.yml
+        working-directory: ./nomad-oasis_files
         run: |
-          cd nomad-oasis_files
           sed -i "s|FAIRMAT_NFDI/nomad-distribution-template|${{ github.repository }}|g" docker-compose.yaml
           zip -r nomad-oasis.zip nomad-oasis
-          cd ..
 
       # Deletes this workflow file to prevent it from running on branch creation
       - name: Delete initialization workflow
